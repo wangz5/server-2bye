@@ -40,7 +40,7 @@
         },
         {
             notes: "删除地理位置",
-            path: "/lbs/del_pos",
+            path: "/lbs/delete_pos",
             http_method: "post",
             format: "json",
             description: "本接口用于删除当前帐号最后一次的更新的地理位置。",
