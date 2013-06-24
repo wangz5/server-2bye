@@ -86,7 +86,7 @@
                                     {{/each}}
                                 </tbody>
                             </table>
-                            <input type="button" class="btn" value="test api" onclick="Docs.TestApi(this,'${$index}', '${path}')" />
+                            <button type="button" class="btn" onclick="Docs.TestApi(this,'${$index}', '${path}')">test api</button>
                             </form>
                             <h3>Response </h3>
                             <div class="response_content">
@@ -134,10 +134,17 @@
             $("#content_" + name).slideToggle();
         }
 
-        Docs.TestApi = function (obj,index, path) {
-            $(obj).parent("form").attr("action", server + path);
-            $(obj).parent("form").attr("target", "_blank");
-            $(obj).parent("form").submit();
+        Docs.TestApi = function (obj, index, path) {
+            var form = $(obj).parent("form");
+            var params = [];
+            $.each(form.find("input"), function (index) {
+                params.push($(this).attr("name") + "=" + $(this).val());
+            });
+
+            //alert(form.find("input:first").val())
+            form.attr("action", server + path + "?" + params.join("&"));
+            form.attr("target", "_blank");
+            form.submit();
         }
         Docs.init = function () {
             $("#doc_tmp_resource").tmpl(resources).appendTo("#resources");
