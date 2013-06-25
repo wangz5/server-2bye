@@ -8,10 +8,11 @@
             format: "json",
             description: "提交用户注册信息",
             parameters: [
+                /*
                 {
-                    parameter: "username",
-                    value: "peter",
-                    description: "用户名字",
+                    parameter: "mobile",
+                    value: "13804128888",
+                    description: "手机号码",
                     data_type: "string"
                 },
                 {
@@ -21,10 +22,31 @@
                     data_type: "string"
                 },
                 {
-                    parameter: "mobile",
-                    value: "13804128888",
-                    description: "手机号码",
+                    parameter: "birthday",
+                    value: "1984/08/08",
+                    description: "生日",
                     data_type: "string"
+                },
+                {
+                    parameter: "usertype",
+                    value: "business",
+                    description: "用户类型 business / individual",
+                    data_type: "string"
+                },
+                */
+                {
+                    parameter: "info",
+                    value: '{mobile:"13804128888",password:"peter222",birthday:"1984/08/08",usertype:"business"}',
+                    value_type: 'textarea',
+                    description: "用户注册基本资料",
+                    data_type: "json"
+                },
+                {
+                    parameter: "picture",
+                    value: "",
+                    value_type:"file",
+                    description: "form-data中媒体文件标识，有filename、filelength、content-type等信息",
+                    data_type: "bytes"
                 }
             ],
             response: {
@@ -68,12 +90,14 @@
                 {
                     parameter: "mobile/email/account",
                     value: "13804128888",
+                    value_type:"text",
                     description: "手机/邮箱/账号名",
                     data_type: "string"
                 },
                 {
                     parameter: "password",
                     value: "123456",
+                    value_type: "text",
                     description: "密码",
                     data_type: "string"
                 }
@@ -103,6 +127,7 @@
                 {
                     parameter: "tokenid",
                     value: "dfc7ad3884e7",
+                    value_type: "text",
                     description: "token id",
                     data_type: "string"
                 }

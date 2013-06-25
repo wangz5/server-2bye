@@ -11,18 +11,21 @@
                 {
                     parameter: "uid",
                     value: "562354",
+                    value_type: "text",
                     description: "用户唯一ID",
                     data_type: "string"
                 },
                 {
                     parameter: "longitude",
                     value: "30.525565",
+                    value_type: "text",
                     description: "经度，例如：30.525565",
                     data_type: "string"
                 },
                 {
                     parameter: "latitude",
                     value: "15.956855",
+                    value_type: "text",
                     description: "纬度，例如：15.956855",
                     data_type: "string"
                 }
@@ -48,6 +51,7 @@
                 {
                     parameter: "uid",
                     value: "562354",
+                    value_type: "text",
                     description: "用户唯一ID",
                     data_type: "string"
                 }

@@ -79,7 +79,7 @@
                                     {{each parameters}}     
                                     <tr>
                                         <td class="parameter-parameter">${parameter}</td>
-                                        <td class="parameter-value"><input name="${parameter}" type="text" value="${value}" /></td>
+                                        <td class="parameter-value">{{if isTextarea(value_type)}}<textarea cols="5" name="${parameter}">${value}</textarea>{{else}}<input name="${parameter}" type="${value_type}" value="${value}" />{{/if}}</td>
                                         <td class="parameter-description">${description}</td>
                                         <td class="parameter-datatype">${data_type}</td>
                                     </tr>
@@ -123,6 +123,7 @@
     </script>
     <script src="api/user.js" type="text/javascript"></script>
     <script src="api/lbs.js" type="text/javascript"></script>
+    <script src="api/upload.js" type="text/javascript"></script>
     <script type="text/javascript">
 
         var Docs = {};
@@ -141,13 +142,17 @@
                 params.push($(this).attr("name") + "=" + $(this).val());
             });
 
-            //alert(form.find("input:first").val())
             form.attr("action", server + path + "?" + params.join("&"));
             form.attr("target", "_blank");
             form.submit();
         }
         Docs.init = function () {
             $("#doc_tmp_resource").tmpl(resources).appendTo("#resources");
+        }
+
+        function isTextarea( value_type )
+        {
+            return value_type == "textarea";
         }
         Docs.init();
     </script>

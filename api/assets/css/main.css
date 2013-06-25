@@ -116,3 +116,7 @@
             .operation.get .http_method {
                 background-color: #44c492;
             }
+textarea {
+    height:100px;
+    width:90%;
+}
