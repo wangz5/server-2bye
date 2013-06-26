@@ -1,6 +1,6 @@
 ﻿<!DOCTYPE html>
 
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<html lang="zh-cn" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8" />
     <title></title>
@@ -20,6 +20,7 @@
     <div id="resources_container">
         <ul id="resources">
         </ul>
+        <span id="time"></span>
     </div>
 
     <script id="doc_tmp_resource" type="text/x-jquery-tmpl">
@@ -65,12 +66,13 @@
                                 </tbody>
                             </table>
                             <h3>Parameters </h3>
-                            <form method="${http_method}">
+                            <form id="form_${notes}" method="${http_method}">
                             <table class="table table-bordered">
                                 <thead>
                                     <tr>
                                         <th class="parameter-parameter">parameter</th>
                                         <th class="parameter-value">value</th>
+                                        <th class="parameter-mandatory">Mandatory?</th>
                                         <th class="parameter-description">description</th>
                                         <th class="parameter-datatype">data type</th>
                                     </tr>
@@ -80,20 +82,25 @@
                                     <tr>
                                         <td class="parameter-parameter">${parameter}</td>
                                         <td class="parameter-value">{{if isTextarea(value_type)}}<textarea cols="5" name="${parameter}">${value}</textarea>{{else}}<input name="${parameter}" type="${value_type}" value="${value}" />{{/if}}</td>
+                                        <td class="parameter-mandatory"><img alt="" src="assets/img/${mandatory}.png" /></td>
                                         <td class="parameter-description">${description}</td>
                                         <td class="parameter-datatype">${data_type}</td>
                                     </tr>
                                     {{/each}}
                                 </tbody>
                             </table>
+                            <h3>Demo</h3>
+                            <div class="apilink_content radius3">
+                                <a href="javascript:;" onclick="window.open($(this).text())">{{html ApiLink(parameters, path)}}</a>
+                            </div>
                             <button type="button" class="btn" onclick="Docs.TestApi(this,'${$index}', '${path}')">test api</button>
                             </form>
                             <h3>Response </h3>
-                            <div class="response_content">
+                            <div class="response_content radius3">
                                 {{html response.data}}
                             </div>
                             <h5>description</h5>
-                            <div class="response_description">
+                            <div class="response_description radius3">
                                 {{html response.description}}
                             </div>
 
@@ -146,14 +153,28 @@
             form.attr("target", "_blank");
             form.submit();
         }
+
+
         Docs.init = function () {
+        	var timer = new Date().getTime();
             $("#doc_tmp_resource").tmpl(resources).appendTo("#resources");
+        }
+
+
+        function ApiLink(parameters, path) {
+
+            var params = [];
+            for (var i in parameters) {
+                params.push(parameters[i].parameter + "=<span class='demo_value'>" + parameters[i].value + "</span>");
+            }
+            return server + path + "?" + params.join("&");
         }
 
         function isTextarea( value_type )
         {
             return value_type == "textarea";
         }
+
         Docs.init();
     </script>
 </body>

@@ -11,7 +11,8 @@
                 {
                     parameter: "type",
                     value: "image",
-                    value_type:"file",
+                    value_type: "file",
+                    mandatory: 'yes',
                     description: "媒体文件类型，包括图片（image）、视频（video）和缩略图（thumb）",
                     data_type: "string"
                 },
@@ -19,6 +20,7 @@
                     parameter: "media",
                     value: "30.525565",
                     value_type: "text",
+                    mandatory: 'yes',
                     description: "form-data中媒体文件标识，有filename、filelength、content-type等信息",
                     data_type: "bytes"
                 }

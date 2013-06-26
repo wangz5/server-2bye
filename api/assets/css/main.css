@@ -1,122 +1,164 @@
 ﻿body {
-            padding: 20px;
+    padding: 20px;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+.table thead {
+    background-color: #f5f5f5!important;
+}
+
+.table th {
+    text-align: center;
+}
+
+.request-th {
+    font-weight: bold;
+    width: 150px;
+}
+
+.parameter-parameter {
+    width: 150px;
+}
+
+.parameter-value {
+    width: 200px;
+}
+
+.parameter-mandatory {
+    text-align: center!important;
+}
+
+.parameter-description {
+}
+
+.parameter-datatype {
+    text-align: center!important;
+    width: 100px;
+}
+
+#resources_container {
+    width: 1000px;
+    margin: 0 auto;
+}
+
+.resource {
+    border-bottom: 1px solid #d5d5d5;
+}
+
+    .resource .endpoints {
+        display: none;
+    }
+
+.response_content {
+    background-color: #f7f7f7;
+    padding: 10px;
+    border: 1px solid #d5d5d5;
+}
+
+.apilink_content {
+    background-color: #f7f7f7;
+    padding: 10px;
+    border: 1px solid #d5d5d5;
+    margin-bottom: 10px;
+}
+
+.response_description {
+    background-color: #ffffed;
+    padding: 10px;
+    border: 1px solid #d5d5d5;
+}
+
+
+.operation {
+    float: none;
+    clear: both;
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+
+    .operation .heading .path {
+        display: inline-block;
+        padding: 0 0 0 20px;
+        font-size: 14px;
+    }
+
+    .operation .content {
+        display: none;
+    }
+
+    .operation .heading h3, .operation .heading h3 span {
+        line-height: 25px;
+    }
+
+
+    .operation.post .heading {
+        cursor: pointer;
+    }
+
+        .operation.post .heading h3 {
+            background-color: #ecf7fe;
+            padding: 0 0 2px 0;
+            
+        border:1px solid #0c6796;
         }
 
-        ol, ul {
-            list-style: none;
-        }
+    .operation.get .heading h3 {
+        background-color: #b9f6d2;
+        padding: 0 0 2px 0;
+    }
 
-        .table thead {
-            background-color: #f5f5f5!important;
-        }
-        .table th {
-            text-align:center;
-        }
-        .request-th {
-            font-weight:bold;
-            width:150px;
-        }
+    .operation .http_method {
+        color: #fff;
+        text-transform: uppercase;
+        display: inline-block;
+        line-height: 30px!important;
+        width: 60px;
+        font-size: 10px;
+        text-align: center;
+        padding: 1px 0 1px 0;
+        -moz-border-radius: 2px;
+        -webkit-border-radius: 2px;
+        -o-border-radius: 2px;
+        -ms-border-radius: 2px;
+        -khtml-border-radius: 2px;
+        border-radius: 2px;
+    }
 
-        .parameter-parameter {
-            width:150px;
-        }
-        .parameter-value {
-            width:200px;
-        }
-        .parameter-description {
-        }
-        .parameter-datatype {
-            text-align:center!important;
-            width:100px;
-        }
-        #resources_container {
-            width: 1000px;
-            margin: 0 auto;
-        }
+    .operation .name {
+        float: right;
+        font-size: 12px;
+        display: inline-block;
+        padding: 0 20px 0 0;
+        color: #565656;
+    }
 
-        .resource {
-            border-bottom: 1px solid #d5d5d5;
-        }
+    .operation.post .http_method {
+        background-color: #0f6ab4;
+    }
 
-            .resource .endpoints {
-                display: none;
-            }
+    .operation.get .http_method {
+        background-color: #44c492;
+    }
 
-        .response_content {
-            background-color: #f7f7f7;
-            padding: 10px;
-            border: 1px solid #d5d5d5;
-        }
+.radius3 {
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -o-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -khtml-border-radius: 3px;
+    border-radius: 3px;
+}
 
-        .response_description {
-            background-color: #ffffed;
-            padding: 10px;
-            border: 1px solid #d5d5d5;
-        }
+.demo_value {
+    color: #fb6f05;
+    font-weight: bold;
+}
 
-
-        .operation {
-            float: none;
-            clear: both;
-            overflow: hidden;
-            display: block;
-            margin: 0 0 10px 0;
-            padding: 0 0 0 0px;
-        }
-
-
-
-            .operation .heading .path {
-                display: inline-block;
-                padding: 0 0 0 20px;
-                font-size: 14px;
-            }
-
-            .operation .content {
-                display: none;
-            }
-            .operation.post .heading {
-                cursor:pointer;
-            }
-            .operation.post .heading h3 {
-                background-color: #ecf7fe;
-                padding:0 0 2px 0;
-            }
-            .operation.get .heading h3 {
-                background-color: #b9f6d2;
-                padding:0 0 2px 0;
-            }
-            .operation .http_method {
-                color: #fff;
-                text-transform: uppercase;
-                display: inline-block;
-                width: 60px;
-                font-size: 10px;
-                text-align: center;
-                padding: 2px 0 3px 0;
-                -moz-border-radius: 2px;
-                -webkit-border-radius: 2px;
-                -o-border-radius: 2px;
-                -ms-border-radius: 2px;
-                -khtml-border-radius: 2px;
-                border-radius: 2px;
-            }
-
-            .operation .name {
-                float:right;
-                font-size:12px;
-                display: inline-block;
-                padding:0 20px 0 0;
-                color:#565656;
-            }
-            .operation.post .http_method {
-                 background-color: #0f6ab4;
-            }
-
-            .operation.get .http_method {
-                background-color: #44c492;
-            }
 textarea {
-    height:100px;
-    width:90%;
+    height: 100px;
+    width: 90%;
 }
