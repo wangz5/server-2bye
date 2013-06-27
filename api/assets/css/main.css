@@ -8,8 +8,9 @@ ol, ul {
 
 
 div, span, ul, li, a, td, th, input {
-'Microsoft Yahei', 微软雅黑, Tahoma, Arial;
+    font-family: Helvetica, arial, freesans, clean, sans-serif;
 }
+
 h3 {
     font-size: 22px;
 }
@@ -71,8 +72,10 @@ h3 {
     .resource h2 {
         display: block;
         float: left;
-        margin:0;
-        font-weight:bold;
+        margin: 0;
+        font-weight: bold;
+        font-size:18px;
+        font-family: Helvetica, arial, freesans, clean, sans-serif;
     }
 
     .resource ul.options {
@@ -97,7 +100,7 @@ h3 {
 
     .resource .endpoints {
         display: none;
-        padding:0;
+        padding: 0;
     }
 
 .response_content {
@@ -152,7 +155,7 @@ h3 {
     .operation .heading h3, .operation .heading h3 span {
         line-height: 25px;
         font-size: 12px;
-        font-family: Tahoma;
+        font-family: Helvetica, arial, freesans, clean, sans-serif;
     }
 
 
