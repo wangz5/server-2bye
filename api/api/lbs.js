@@ -1,5 +1,5 @@
 ﻿resources.push({
-    name: "LBS",
+    name: "lbs",
     operations: [
         {
             notes: "更新地理位置",

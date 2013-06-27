@@ -31,13 +31,26 @@
                 <h2>
                     <a href="#" onclick="Docs.toggleEndpointListForResource('${name}');">/${name}</a>
                 </h2>
+                <ul class="options">
+                    <li>
+                        <a href="#!/${name}" id="endpointListTogger_user" onclick="Docs.toggleEndpointListForResource('${name}');">Show/Hide</a>
+                    </li>
+                    <li>
+                        <a href="#" onclick="Docs.collapseOperationsForResource('${name}'); return false;">List Operations
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" onclick="Docs.expandOperationsForResource('${name}'); return false;">Expand Operations
+                        </a>
+                    </li>
+                </ul>
             </div>
 
             <ul id="endpoint_list_${name}" class="endpoints">
                 {{each operations}}     
                     <li class="operation ${http_method}">
                         <div class="heading" onclick="Docs.toggleContent('${notes}');">
-                            <h3>
+                            <h3 class="radius3">
                                 <span class="http_method">${http_method}</span>
                                 <span class="path">${path}</span>
                                 <span class="name">${notes}</span>
@@ -56,10 +69,6 @@
                                         <td>${path}</td>
                                     </tr>
                                     <tr>
-                                        <td class="request-th">格式</td>
-                                        <td>${format}</td>
-                                    </tr>
-                                    <tr>
                                         <td class="request-th">http请求方式</td>
                                         <td>${http_method}</td>
                                     </tr>
@@ -67,33 +76,34 @@
                             </table>
                             <h3>Parameters </h3>
                             <form id="form_${notes}" method="${http_method}">
-                            <table class="table table-bordered">
-                                <thead>
-                                    <tr>
-                                        <th class="parameter-parameter">parameter</th>
-                                        <th class="parameter-value">value</th>
-                                        <th class="parameter-mandatory">Mandatory?</th>
-                                        <th class="parameter-description">description</th>
-                                        <th class="parameter-datatype">data type</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {{each parameters}}     
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th class="parameter-parameter">parameter</th>
+                                            <th class="parameter-value">value</th>
+                                            <th class="parameter-mandatory">Mandatory?</th>
+                                            <th class="parameter-description">description</th>
+                                            <th class="parameter-datatype">data type</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {{each parameters}}     
                                     <tr>
                                         <td class="parameter-parameter">${parameter}</td>
                                         <td class="parameter-value">{{if isTextarea(value_type)}}<textarea cols="5" name="${parameter}">${value}</textarea>{{else}}<input name="${parameter}" type="${value_type}" value="${value}" />{{/if}}</td>
-                                        <td class="parameter-mandatory"><img alt="" src="assets/img/${mandatory}.png" /></td>
+                                        <td class="parameter-mandatory">
+                                            <img alt="" src="assets/img/${mandatory}.png" /></td>
                                         <td class="parameter-description">${description}</td>
                                         <td class="parameter-datatype">${data_type}</td>
                                     </tr>
-                                    {{/each}}
-                                </tbody>
-                            </table>
-                            <h3>Demo</h3>
-                            <div class="apilink_content radius3">
-                                <a href="javascript:;" onclick="window.open($(this).text())">{{html ApiLink(parameters, path)}}</a>
-                            </div>
-                            <button type="button" class="btn" onclick="Docs.TestApi(this,'${$index}', '${path}')">test api</button>
+                                        {{/each}}
+                                    </tbody>
+                                </table>
+                                <h3>Demo</h3>
+                                <div class="apilink_content radius3">
+                                    <a href="javascript:;" onclick="window.open($(this).text())">{{html ApiLink(parameters, path)}}</a>
+                                </div>
+                                <button type="button" class="btn" onclick="Docs.TestApi(this,'${$index}', '${path}')">test api</button>
                             </form>
                             <h3>Response </h3>
                             <div class="response_content radius3">
@@ -134,9 +144,21 @@
     <script type="text/javascript">
 
         var Docs = {};
+
         Docs.toggleEndpointListForResource = function (name) {
             $("#endpoint_list_" + name).slideToggle();
         }
+
+        Docs.collapseOperationsForResource = function (name) {
+            $("#endpoint_list_" + name + " .operation .content").hide();
+            $("#endpoint_list_" + name).slideDown("slow");
+        }
+
+        Docs.expandOperationsForResource = function (name) {
+            $("#endpoint_list_" + name + " .operation .content").show();
+            $("#endpoint_list_" + name).show();
+        }
+
 
         Docs.toggleContent = function (name) {
             $("#content_" + name).slideToggle();
@@ -156,7 +178,7 @@
 
 
         Docs.init = function () {
-        	var timer = new Date().getTime();
+            var timer = new Date().getTime();
             $("#doc_tmp_resource").tmpl(resources).appendTo("#resources");
         }
 
@@ -170,8 +192,7 @@
             return server + path + "?" + params.join("&");
         }
 
-        function isTextarea( value_type )
-        {
+        function isTextarea(value_type) {
             return value_type == "textarea";
         }
 

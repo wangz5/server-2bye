@@ -1,5 +1,5 @@
 ﻿resources.push({
-    name: "USER",
+    name: "user",
     operations: [
         {
             notes: "用户注册",
@@ -26,8 +26,8 @@
                 }
             ],
             response: {
-                data: '{code:"1",errcode:"1"}',
-                description: 'errcode : 返回错误码,</br>code : 返回值，0-成功，非0-失败'
+                data: '{ret:"1",errcode:"1"}',
+                description: 'errcode : 返回错误码,</br>ret : 返回值，0-成功，非0-失败'
             },
             return_code: [
                  {
@@ -82,7 +82,7 @@
             ],
             response: {
                 data: '{code:"1","tokenid": "dfc7ad3884e7",errcode:"10001"}',
-                description: 'errcode : 返回错误码,</br>code : 返回值，0-成功，非0-失败'
+                description: 'errcode : 返回错误码,</br>ret : 返回值，0-成功，非0-失败'
             },
             return_code: [
                  {
@@ -113,7 +113,7 @@
             ],
             response: {
                 data: '{code:"1"}',
-                description: 'code : 返回值，0退出失败,1退出成功'
+                description: 'ret : 返回值，0退出失败,1退出成功'
             },
             return_code: [
           

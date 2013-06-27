@@ -1,5 +1,5 @@
 ﻿resources.push({
-    name: "UPLOAD",
+    name: "upload",
     operations: [
         {
             notes: "上传媒体文件",

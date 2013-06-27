@@ -6,12 +6,24 @@ ol, ul {
     list-style: none;
 }
 
+
+div, span, ul, li, a, td, th, input {
+'Microsoft Yahei', 微软雅黑, Tahoma, Arial;
+}
+h3 {
+    font-size: 22px;
+}
+
 .table thead {
     background-color: #f5f5f5!important;
 }
 
 .table th {
     text-align: center;
+}
+
+.table td {
+    background-color: #fff;
 }
 
 .request-th {
@@ -48,8 +60,44 @@ ol, ul {
     border-bottom: 1px solid #d5d5d5;
 }
 
+    .resource .heading {
+        border: 1px solid transparent;
+        float: none;
+        clear: both;
+        overflow: hidden;
+        display: block;
+    }
+
+    .resource h2 {
+        display: block;
+        float: left;
+        margin:0;
+        font-weight:bold;
+    }
+
+    .resource ul.options {
+        float: none;
+        clear: both;
+        overflow: hidden;
+        margin: 0;
+        padding: 0;
+        display: block;
+        clear: none;
+        float: right;
+        margin: 14px 10px 0 0;
+    }
+
+        .resource ul.options li {
+            clear: none;
+            margin: 0;
+            padding: 2px 10px;
+            border-right: 1px solid #dddddd;
+            float: left;
+        }
+
     .resource .endpoints {
         display: none;
+        padding:0;
     }
 
 .response_content {
@@ -77,8 +125,12 @@ ol, ul {
     clear: both;
     display: block;
     margin: 0;
-    padding: 0;
+    padding: 0 20px 10px 0;
 }
+
+    .operation h3 {
+        margin: 0;
+    }
 
     .operation .heading .path {
         display: inline-block;
@@ -88,10 +140,19 @@ ol, ul {
 
     .operation .content {
         display: none;
+        padding: 0 25px 20px 25px;
+        border: 1px solid #afcde7;
+        border-top: none;
     }
+
+        .operation .content h3 {
+            padding: 10px 0;
+        }
 
     .operation .heading h3, .operation .heading h3 span {
         line-height: 25px;
+        font-size: 12px;
+        font-family: Tahoma;
     }
 
 
@@ -101,14 +162,13 @@ ol, ul {
 
         .operation.post .heading h3 {
             background-color: #ecf7fe;
-            padding: 0 0 2px 0;
-            
-        border:1px solid #0c6796;
+            padding: 0 0 0 0;
+            border: 1px solid #afcde7;
         }
 
     .operation.get .heading h3 {
         background-color: #b9f6d2;
-        padding: 0 0 2px 0;
+        padding: 0 0 0 0;
     }
 
     .operation .http_method {
@@ -118,6 +178,7 @@ ol, ul {
         line-height: 30px!important;
         width: 60px;
         font-size: 10px;
+        font-weight: bold;
         text-align: center;
         padding: 1px 0 1px 0;
         -moz-border-radius: 2px;
@@ -132,16 +193,28 @@ ol, ul {
         float: right;
         font-size: 12px;
         display: inline-block;
-        padding: 0 20px 0 0;
+        padding: 2px 20px 0 0;
         color: #565656;
     }
 
     .operation.post .http_method {
-        background-color: #0f6ab4;
+        background-color: #1388d2;
     }
 
     .operation.get .http_method {
         background-color: #44c492;
+    }
+
+    .operation.post .name {
+        color: #164f7e;
+    }
+
+    .operation.post .path {
+        color: #164f7e;
+    }
+
+    .operation.get .path {
+        color: #164f7e;
     }
 
 .radius3 {
